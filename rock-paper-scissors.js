@@ -1,36 +1,5 @@
 //ROCK PAPER SCISSORS
 
-/* 5 round game of RPS pseudocode:
-start game
-start round
-generate computer RPS pick
-ask user for RPS pick (convert to all lowercase)
-check who wins
-add 1 point to winner's score
-declare winner of round with message
-loop this sequence 5 times
-declare winner of game with message (compare user and computrer score)
-reset all values to zero and repeat
-
-variable to make?
-playerSelection
-computerSelection
-playerScore
-computerScore
-
-functions to make?
-getComputerChoice()
-playRound()
-game() {
-for (let i = 0; i < 5; i++) {
-   // your code here!
-} 
-}
-compareChoices?
-showScore
-*/
-
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -98,3 +67,43 @@ function game() {
 game()
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* 5 round game of RPS pseudocode:
+start game
+start round
+generate computer RPS pick
+ask user for RPS pick (convert to all lowercase)
+check who wins
+add 1 point to winner's score
+declare winner of round with message
+loop this sequence 5 times
+declare winner of game with message (compare user and computrer score)
+reset all values to zero and repeat
+
+variable to make?
+playerSelection
+computerSelection
+playerScore
+computerScore
+
+functions to make?
+getComputerChoice()
+playRound()
+game() {
+for (let i = 0; i < 5; i++) {
+   // your code here!
+} 
+}
+compareChoices?
+showScore
+*/
