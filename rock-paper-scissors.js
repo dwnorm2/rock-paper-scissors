@@ -3,11 +3,11 @@ let playerScore = 0;
 let computerScore = 0;
 let choice = ["rock", "paper", "scissors"];
 
-function intro(){
+function intro() {
     let gameStart = window.confirm('Start game? If console is not open, please hit cancel, open console, and refresh page')
-    if (gameStart){
+    if (gameStart) {
         game()
-    } 
+    }
 }
 
 
@@ -17,19 +17,19 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     let input = prompt("Rock, Paper, or Scissors?");
-    if(input == null) {
+    if (input == null) {
         input = prompt("Rock, Paper, or Scissors?");
-    } 
+    }
     input = input.toLowerCase()
 
     let check = validateInput(input)
     while (check == false) {
-       input = prompt('Type rock, paper, or scissors - Check Spelling')
-       while(input == null) {
-        input = prompt("Rock, Paper, or Scissors?");
-    } 
-       input = input.toLowerCase()
-       check = validateInput(input)
+        input = prompt('Type rock, paper, or scissors - Check Spelling')
+        while (input == null) {
+            input = prompt("Rock, Paper, or Scissors?");
+        }
+        input = input.toLowerCase()
+        check = validateInput(input)
     }
     return input
 
@@ -40,7 +40,7 @@ function validateInput(input) {
         return true;
     } else {
         return false;
-}
+    }
 }
 
 function game() {
@@ -79,7 +79,7 @@ function playRound() {
         }
     }
     //scissors
-    else if (playerSelection === "scissors") {
+    else {
         if (computerSelection === "rock") {
             console.log("You lose! Rock beats Scissors")
             computerScore++;
@@ -87,8 +87,6 @@ function playRound() {
             console.log("You win! Scissors beats Paper")
             playerScore++;
         }
-    } else {
-        console.log("Please enter Rock, Paper, or Scissors")
     }
 }
 
