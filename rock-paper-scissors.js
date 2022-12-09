@@ -19,15 +19,15 @@ function getComputerChoice() {
 function getPlayerChoice() {
   let input = prompt("Rock, Paper, or Scissors?");
   if (input == null) {
-    input = prompt("Rock, Paper, or Scissors?");
+    intro();
   }
   input = input.toLowerCase();
 
   let check = validateInput(input);
   while (check == false) {
     input = prompt("Type rock, paper, or scissors - Check Spelling");
-    while (input == null) {
-      input = prompt("Rock, Paper, or Scissors?");
+    if (input == null) {
+      intro();
     }
     input = input.toLowerCase();
     check = validateInput(input);
