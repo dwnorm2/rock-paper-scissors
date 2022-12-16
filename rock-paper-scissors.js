@@ -48,6 +48,12 @@ function game() {
     playRound();
   }
   getScore();
+  let playAgain = window.confirm("Play another game?");
+  if (playAgain) {
+    game();
+  } else {
+    intro();
+  }
 }
 
 function playRound() {
@@ -57,6 +63,8 @@ function playRound() {
   //tie
   if (playerSelection === computerSelection) {
     console.log("It's a Tie");
+    // if you don't want to count ties
+    //playRound();
   }
   //rock
   else if (playerSelection === "rock") {
@@ -104,6 +112,8 @@ function getScore() {
       `You lost! ${playerScore} - ${computerScore}. Refresh page to start new game`
     );
   }
+  playerScore = 0;
+  computerScore = 0;
 }
 
 intro();
