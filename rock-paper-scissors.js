@@ -44,9 +44,12 @@ function validateInput(input) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
+  // for (let i = 0; i < 5; i++) {
+  //   playRound();
+  // }
+  do {
     playRound();
-  }
+  } while (playerScore < 5 && computerScore < 5);
   getScore();
   let playAgain = window.confirm("Play another game?");
   if (playAgain) {
