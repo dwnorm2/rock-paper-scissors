@@ -9,6 +9,10 @@ body {
   margin: 0px;
 }
 
+.intro {
+  margin-top: 0px;
+}
+
 .player-section {
   display: flex;
   flex-direction: column;
