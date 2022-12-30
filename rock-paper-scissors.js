@@ -2,20 +2,29 @@
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const playerChoiceDiv = document.querySelector(".player-selection");
+const computerChoiceDiv = document.querySelector(".computer-selection");
+const resultsDiv = document.querySelector(".results");
+const playerScoreDiv = document.querySelector(".player-score");
+const computerScoreDiv = document.querySelector(".computer-score");
+const finalScore = document.querySelector(".final-score");
 let playerSelection;
 
 rockButton.addEventListener("click", () => {
   playerSelection = "rock";
+  playerChoiceDiv.textContent = "Your Choice: rock";
   playRound();
 });
 
 paperButton.addEventListener("click", () => {
   playerSelection = "paper";
+  playerChoiceDiv.textContent = "Your Choice: paper";
   playRound();
 });
 
 scissorsButton.addEventListener("click", () => {
   playerSelection = "scissors";
+  playerChoiceDiv.textContent = "Your Choice: scissors";
   playRound();
 });
 
@@ -78,42 +87,53 @@ function getComputerChoice() {
 // }
 
 function playRound() {
+  finalScore.textContent = "";
   const computerSelection = getComputerChoice();
-  console.log(`Computer picked ${computerSelection}`);
+  computerChoiceDiv.textContent = `Computer Choice: ${computerSelection}`;
+  // console.log(`Computer picked ${computerSelection}`);
   //tie
   if (playerSelection === computerSelection) {
-    console.log("It's a Tie");
+    resultsDiv.textContent = "Results: It's a Tie";
+    // console.log("It's a Tie");
   }
   //rock
   else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      console.log("You Lose! Paper beats Rock");
+      resultsDiv.textContent = "Results: You Lose! Paper beats Rock";
+      // console.log("You Lose! Paper beats Rock");
       computerScore++;
     } else {
-      console.log("You Win! Rock beats Scissors");
+      resultsDiv.textContent = "Results: You Win! Rock beats Scissors";
+      // console.log("You Win! Rock beats Scissors");
       playerScore++;
     }
   }
   //paper
   else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
-      console.log("You Lose! Scissors beats Paper");
+      resultsDiv.textContent = "Results: You Lose! Scissors beats Paper";
+      // console.log("You Lose! Scissors beats Paper");
       computerScore++;
     } else {
-      console.log("You Win! Paper beats Rock");
+      resultsDiv.textContent = "Results: You Win! Paper beats Rock";
+      // console.log("You Win! Paper beats Rock");
       playerScore++;
     }
   }
   //scissors
   else {
     if (computerSelection === "rock") {
-      console.log("You lose! Rock beats Scissors");
+      resultsDiv.textContent = "Results: You Lose! Rock beats Scissors";
+      // console.log("You lose! Rock beats Scissors");
       computerScore++;
     } else {
-      console.log("You win! Scissors beats Paper");
+      resultsDiv.textContent = "Results: You Win! Scissors beats Paper";
+      // console.log("You win! Scissors beats Paper");
       playerScore++;
     }
   }
+  playerScoreDiv.textContent = `Your Score: ${playerScore}`;
+  computerScoreDiv.textContent = `Computer Score: ${computerScore}`;
   //game stops at 5 points
   if (playerScore == 5 || computerScore == 5) {
     getScore();
@@ -123,13 +143,18 @@ function playRound() {
 function getScore() {
   //calculate and declare winner:
   if (playerScore === computerScore) {
-    console.log(`It's a tie! ${playerScore} - ${computerScore}.`);
+    finalScore.textContent = "It's a tie!";
+    // console.log(`It's a tie! ${playerScore} - ${computerScore}.`);
   } else if (playerScore > computerScore) {
-    console.log(`You won! ${playerScore} - ${computerScore}.`);
+    finalScore.textContent = "You Win!";
+    // console.log(`You won! ${playerScore} - ${computerScore}.`);
   } else {
-    console.log(`You lost! ${playerScore} - ${computerScore}.`);
+    finalScore.textContent = "You Lose!";
+    // console.log(`You lost! ${playerScore} - ${computerScore}.`);
   }
   //reset score:
   playerScore = 0;
   computerScore = 0;
 }
+
+// container.insertAdjacentText('beforeend', ', Kiwi, Melon');
