@@ -11,23 +11,30 @@
     <h1>Rock Paper Scissors!</h1>
     <h2 class="intro">First to 5 Points Wins</h2>
     <h3>Make Your Selection:</h3>
-    <div class="player-section">
-      <div class="buttons">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
-      </div>
-      <div class="player-selection">Your Choice:</div>
-      <div class="player-score">Your Score:</div>
+
+    <div class="buttons">
+      <button class="rock">Rock</button>
+      <button class="paper">Paper</button>
+      <button class="scissors">Scissors</button>
     </div>
-    <div class="computer-section">
-      <div class="computer-selection">Computer Choice:</div>
+    <div class="choices">
+      <div class="player-container"><div class="player-selection"></div></div>
+
+      <div class="vs">vs</div>
+      <div class="computer-container">
+        <div class="computer-selection"></div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="player-score">Your Score:</div>
       <div class="computer-score">Computer Score</div>
     </div>
 
-    <div class="results">Results:</div>
+    <div class="results"></div>
 
     <h2 class="final-score"></h2>
+    <h4 id="newgame">Make a New Selection to Start a New Game</h4>
     <script src="rock-paper-scissors.js"></script>
   </body>
 </html>

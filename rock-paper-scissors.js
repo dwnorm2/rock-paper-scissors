@@ -12,19 +12,19 @@ let playerSelection;
 
 rockButton.addEventListener("click", () => {
   playerSelection = "rock";
-  playerChoiceDiv.textContent = "Your Choice: rock";
+  playerChoiceDiv.textContent = "rock";
   playRound();
 });
 
 paperButton.addEventListener("click", () => {
   playerSelection = "paper";
-  playerChoiceDiv.textContent = "Your Choice: paper";
+  playerChoiceDiv.textContent = "paper";
   playRound();
 });
 
 scissorsButton.addEventListener("click", () => {
   playerSelection = "scissors";
-  playerChoiceDiv.textContent = "Your Choice: scissors";
+  playerChoiceDiv.textContent = "scissors";
   playRound();
 });
 
@@ -38,21 +38,22 @@ function getComputerChoice() {
 
 function playRound() {
   finalScore.textContent = "";
+  document.getElementById("newgame").style.display = "none";
   const computerSelection = getComputerChoice();
-  computerChoiceDiv.textContent = `Computer Choice: ${computerSelection}`;
+  computerChoiceDiv.textContent = `${computerSelection}`;
 
   //tie
   if (playerSelection === computerSelection) {
-    resultsDiv.textContent = "Results: It's a Tie";
+    resultsDiv.textContent = "It's a Tie";
   }
   //rock
   else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      resultsDiv.textContent = "Results: You Lose! Paper beats Rock";
+      resultsDiv.textContent = "You Lose! Paper beats Rock";
 
       computerScore++;
     } else {
-      resultsDiv.textContent = "Results: You Win! Rock beats Scissors";
+      resultsDiv.textContent = "You Win! Rock beats Scissors";
 
       playerScore++;
     }
@@ -60,11 +61,11 @@ function playRound() {
   //paper
   else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
-      resultsDiv.textContent = "Results: You Lose! Scissors beats Paper";
+      resultsDiv.textContent = "You Lose! Scissors beats Paper";
 
       computerScore++;
     } else {
-      resultsDiv.textContent = "Results: You Win! Paper beats Rock";
+      resultsDiv.textContent = "You Win! Paper beats Rock";
 
       playerScore++;
     }
@@ -72,11 +73,11 @@ function playRound() {
   //scissors
   else {
     if (computerSelection === "rock") {
-      resultsDiv.textContent = "Results: You Lose! Rock beats Scissors";
+      resultsDiv.textContent = "You Lose! Rock beats Scissors";
 
       computerScore++;
     } else {
-      resultsDiv.textContent = "Results: You Win! Scissors beats Paper";
+      resultsDiv.textContent = "You Win! Scissors beats Paper";
 
       playerScore++;
     }
@@ -86,6 +87,7 @@ function playRound() {
   //game stops at 5 points
   if (playerScore == 5 || computerScore == 5) {
     getScore();
+    document.getElementById("newgame").style.display = "block";
   }
 }
 
@@ -94,11 +96,14 @@ function getScore() {
   if (playerScore === computerScore) {
     finalScore.textContent = "It's a tie!";
   } else if (playerScore > computerScore) {
-    finalScore.textContent = "You Win!";
+    finalScore.textContent = `You Win! ${playerScore} - ${computerScore}`;
   } else {
-    finalScore.textContent = "You Lose!";
+    finalScore.textContent = `You Lose! ${playerScore} - ${computerScore}`;
   }
   //reset score:
   playerScore = 0;
   computerScore = 0;
 }
+
+finalScore.textContent = "";
+document.getElementById("newgame").style.display = "none";
